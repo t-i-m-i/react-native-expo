@@ -48,3 +48,15 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+
+
+# Dev log
+##
+`npx create-expo-app@latest --yes --template`
+##
+brew install watchman
+##
+ulimit -n => 256
+ulimit -n 65536
