@@ -16,7 +16,10 @@ export default function Index() {
           backgroundColor: 'thistle',
         },
         headerRight: () => (
-          <Link href={'/polls/create'}>+</Link>  
+          <Link href={'/polls/create'} style={{
+            color: "#007AFF",
+            fontSize: 16,
+          }}>Create new</Link>  
         ),
       }}/>
       <FlatList

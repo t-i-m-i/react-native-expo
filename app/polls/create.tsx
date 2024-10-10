@@ -64,6 +64,7 @@ export default function Create() {
                   onChangeText={(value) => handleOptionChange(index, value)}
                   style={s.input}
                   placeholder={`Option ${index + 1}`}
+                  placeholderTextColor="#888"
                 />
                 <Pressable style={s.removeBtnBox} onPress={() => removeOption(index)}>
                   <Text style={s.removeBtnTxt}>&ndash;</Text>
@@ -102,27 +103,29 @@ const s = StyleSheet.create({
     ...createBorder(1, 'mediumpurple'),
     borderRadius: 5,
     backgroundColor: '#fff',
-    marginBottom: 5,
+    marginBottom: 10,
+    fontSize: 20,
   },
   removeBtnBox: {
     position: 'absolute',
     right: 10,
     backgroundColor: 'red',
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     // justifyContent: 'center',
     // alignItems: 'center',
-    transform: [{ translateY: -1 }],
+    transform: [{ translateY: -5 }],
   },
   removeBtnTxt: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 18,
     // backgroundColor: 'lime',
-    width: 20,
-    height: 20,
-    lineHeight: 20,
+    width: 28,
+    height: 28,
+    lineHeight: 28,
     textAlign: 'center',
+    transform: [{ translateY: -1 }],
   }
 });
