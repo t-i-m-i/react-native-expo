@@ -1,13 +1,23 @@
-import { Stack } from "expo-router";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { Link, Stack } from "expo-router";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const polls = [1, 2, 3];
+const polls = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+];
 
 export default function Index() {
   return (
     <>
       <Stack.Screen options={{
         title: 'Polls',
+        headerStyle: {
+          backgroundColor: 'thistle',
+        },
+        headerRight: () => (
+          <Link href={'/polls/create'}>+</Link>  
+        ),
       }}/>
       <FlatList
         data={polls}
@@ -15,10 +25,10 @@ export default function Index() {
           backgroundColor: 'thistle',
         }}
         contentContainerStyle={s.container}
-        renderItem={() => (
-          <View style={s.item}>
-            <Text style={s.title}>Example poll</Text>
-          </View>
+        renderItem={({ item }) => (
+          <TouchableOpacity style={s.item}>
+            <Link href={`/polls/${item.id}`} style={s.title}>Example poll {item.id}</Link>
+          </TouchableOpacity>
         )}
       />
     </>
