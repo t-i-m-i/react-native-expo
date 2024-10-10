@@ -1,13 +1,30 @@
 import { Link, Stack } from "expo-router";
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { supabase } from "./lib/supabase";
 
-const polls = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-];
+interface Poll {
+  id: number;
+  question: string;
+  options: string[];
+}
 
 export default function Index() {
+
+  const [polls, setPolls] = useState<Poll[]>([]);
+
+  useEffect(() => {
+    const fetchPolls = async () => {
+      let { data: polls, error } = await supabase.from('polls').select('id,question,options');
+      if (error) {
+        Alert.alert('Error fetching data');
+      }
+      // console.log(polls);
+      setPolls(polls || []);
+    }
+    fetchPolls();
+  }, []);
+
   return (
     <>
       <Stack.Screen options={{
@@ -19,18 +36,18 @@ export default function Index() {
           <Link href={'/polls/create'} style={{
             color: "#007AFF",
             fontSize: 16,
-          }}>Create new</Link>  
+          }}>Create new</Link>
         ),
-      }}/>
+      }} />
       <FlatList
         data={polls}
         style={{
           backgroundColor: 'thistle',
         }}
         contentContainerStyle={s.container}
-        renderItem={({ item }) => (
+        renderItem={({ item: poll }) => (
           <TouchableOpacity style={s.item}>
-            <Link href={`/polls/${item.id}`} style={s.title}>Example poll {item.id}</Link>
+            <Link href={`/polls/${poll.id}`} style={s.title}>{poll.question}</Link>
           </TouchableOpacity>
         )}
       />
