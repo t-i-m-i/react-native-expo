@@ -96,7 +96,7 @@ const s = StyleSheet.create({
   },
   label: {
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 10,
   },
   input: {
     padding: 10,
