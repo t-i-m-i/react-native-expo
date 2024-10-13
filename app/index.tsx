@@ -15,7 +15,7 @@ type PollsData = QueryData<typeof pollsQuery>;
 
 export default function Index() {
   // +++ when selecting selected columns:
-  const [polls, setPolls] = useState<PollsData | null>([]);
+    const [polls, setPolls] = useState<PollsData>([]);
     
   // *** when selecting all columns:
   // const [polls, setPolls] = useState<PollsDataAll[]>([]);
@@ -25,8 +25,11 @@ export default function Index() {
       let { data, error } = await pollsQuery;
       if (error) {
         Alert.alert('Error fetching data');
+        return;
       }
-      setPolls(data);
+      if (data && data.length > 0) {
+        setPolls(data);
+      }
     }
     fetchPolls();
   }, []);
@@ -58,7 +61,7 @@ export default function Index() {
         )}
       />
       
-      {/* <Link href={`/polls/3`} style={s.title}>3</Link> */}
+      {/* testing unexisting poll <Link href={`/polls/3`} style={s.title}>3</Link> */}
 
     </>
   );
