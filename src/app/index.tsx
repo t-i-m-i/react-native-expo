@@ -1,9 +1,9 @@
 import { Link, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { supabase } from "./lib/supabase";
+import { supabase } from "../lib/supabase";
 import { QueryData } from "@supabase/supabase-js";
-import { Tables } from "./types/database.types";
+import { Tables } from "../types/database.types";
 
 // +++ when selecting selected columns:
 const pollsQuery = supabase.from('polls').select('id,question,options');

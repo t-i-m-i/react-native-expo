@@ -1,8 +1,8 @@
 import { Stack, useLocalSearchParams } from "expo-router";
 import { View, Text, ScrollView, StyleSheet, Alert } from "react-native";
 
-import gs from "../styles/globalStyles";
-import { supabase } from "../lib/supabase";
+import gs from "../../styles/globalStyles";
+import { supabase } from "../../lib/supabase";
 import { useEffect, useState } from "react";
 import { QueryData } from "@supabase/supabase-js";
 
