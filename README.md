@@ -38,6 +38,7 @@ ulimit -n 65536
 
 Docs:
 https://supabase.com/docs/guides/api/rest/generating-types
+https://github.com/supabase/supabase/blob/master/examples/todo-list/nextjs-todo-list/components/TodoList.tsx
 
 Added to project:
 - dotenv devDep, 

@@ -3,12 +3,22 @@ import { useEffect, useState } from "react";
 import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { supabase } from "./lib/supabase";
 import { QueryData } from "@supabase/supabase-js";
+import { Tables } from "./types/database.types";
 
+// +++ when selecting selected columns:
 const pollsQuery = supabase.from('polls').select('id,question,options');
-type PollsData = QueryData<typeof pollsQuery> | null;
+type PollsData = QueryData<typeof pollsQuery>;
+
+// *** when selecting all columns:
+// const pollsQuery = supabase.from('polls').select('*');
+// type PollsDataAll = Tables<'polls'>;
 
 export default function Index() {
-  const [polls, setPolls] = useState<PollsData>([]);
+  // +++ when selecting selected columns:
+  const [polls, setPolls] = useState<PollsData | null>([]);
+    
+  // *** when selecting all columns:
+  // const [polls, setPolls] = useState<PollsDataAll[]>([]);
   
   useEffect(() => {
     const fetchPolls = async () => {
