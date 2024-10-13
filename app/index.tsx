@@ -57,6 +57,9 @@ export default function Index() {
           </TouchableOpacity>
         )}
       />
+      
+      {/* <Link href={`/polls/3`} style={s.title}>3</Link> */}
+
     </>
   );
 }
