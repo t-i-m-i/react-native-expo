@@ -33,3 +33,14 @@ ulimit -n // default 256 is to low
 ```
 ulimit -n 65536
 ```
+
+4. Generating TypeScript Types
+
+Docs:
+https://supabase.com/docs/guides/api/rest/generating-types
+
+Added to project:
+- dotenv devDep, 
+- PROJECT_REF .env variable
+- generate-supabase-types.js script for @npx supabase gen types@, 
+- package.json script @generate-supabase-types@

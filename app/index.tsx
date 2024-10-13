@@ -2,25 +2,21 @@ import { Link, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { supabase } from "./lib/supabase";
+import { QueryData } from "@supabase/supabase-js";
 
-interface Poll {
-  id: number;
-  question: string;
-  options: string[];
-}
+const pollsQuery = supabase.from('polls').select('id,question,options');
+type PollsData = QueryData<typeof pollsQuery> | null;
 
 export default function Index() {
-
-  const [polls, setPolls] = useState<Poll[]>([]);
-
+  const [polls, setPolls] = useState<PollsData>([]);
+  
   useEffect(() => {
     const fetchPolls = async () => {
-      let { data: polls, error } = await supabase.from('polls').select('id,question,options');
+      let { data, error } = await pollsQuery;
       if (error) {
         Alert.alert('Error fetching data');
       }
-      // console.log(polls);
-      setPolls(polls || []);
+      setPolls(data);
     }
     fetchPolls();
   }, []);
