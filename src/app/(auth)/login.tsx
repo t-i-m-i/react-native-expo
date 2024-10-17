@@ -1,9 +1,11 @@
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 export default function LoginScreen() {
   return(
     <>
-      <Text>Login screen</Text>
+      <View>
+        <Text>Login screen</Text>
+      </View>
     </>
   )
 }

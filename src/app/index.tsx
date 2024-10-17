@@ -19,6 +19,15 @@ export default function Index() {
     
   // *** when selecting all columns:
   // const [polls, setPolls] = useState<PollsDataAll[]>([]);
+
+  // [info] 
+  //
+  // => red error screen on simulator - interactive - opens file in editor
+  // console.error('hello world'); 
+  //
+  // => opens debugger in js inpector, shows current scope (state, props, refs, context, etc.) 
+  // see: https://share.merce.com/files/c3fee586-bcd3-40ad-8fb4-d720b75c995e.png
+  // debugger
   
   useEffect(() => {
     const fetchPolls = async () => {
@@ -41,6 +50,12 @@ export default function Index() {
         headerStyle: {
           backgroundColor: 'thistle',
         },
+        headerLeft: () => (
+          <Link href={'/login'} style={{
+            color: "#007AFF",
+            fontSize: 16,
+          }}>My account</Link>
+        ),
         headerRight: () => (
           <Link href={'/polls/create'} style={{
             color: "#007AFF",

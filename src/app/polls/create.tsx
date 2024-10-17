@@ -2,8 +2,8 @@ import { Stack } from "expo-router";
 import { View, Text, ScrollView, TextInput, StyleSheet, Button, Alert, Pressable } from "react-native";
 import { useState } from "react";
 
-import gs from "../../styles/globalStyles";
-import { createBorder } from '../../styles/borderUtils';
+import gs from "styles/globalStyles";
+import { createBorder } from 'styles/borderUtils';
 
 export default function Create() {
   const [question, setQuestion] = useState('');
