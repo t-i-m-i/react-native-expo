@@ -1,10 +1,10 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { createClient } from '@supabase/supabase-js'
-import { Database } from '../types/database.types';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createClient } from "@supabase/supabase-js";
+import { Database } from "../types/database.types";
 import { Platform } from "react-native";
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? '';
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL ?? "";
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? "";
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
@@ -12,10 +12,10 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
 
     // solution:
     // https://github.com/supabase/supabase-js/issues/870
-    ...(Platform.OS !== 'web' ? { storage: AsyncStorage } : {}),
-    
+    ...(Platform.OS !== "web" ? { storage: AsyncStorage } : {}),
+
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: false,
   },
-})
+});

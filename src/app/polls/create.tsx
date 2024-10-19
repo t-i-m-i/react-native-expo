@@ -1,15 +1,24 @@
 import { Stack } from "expo-router";
-import { View, Text, ScrollView, TextInput, StyleSheet, Button, Alert, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  TextInput,
+  StyleSheet,
+  Button,
+  Alert,
+  Pressable,
+} from "react-native";
 import { useState } from "react";
 
 import gs from "styles/globalStyles";
-import { createBorder } from 'styles/borderUtils';
+import { createBorder } from "styles/borderUtils";
 
 export default function Create() {
-  const [question, setQuestion] = useState('');
-  const [options, setOptions] = useState(['111', '222']);
+  const [question, setQuestion] = useState("");
+  const [options, setOptions] = useState(["111", "222"]);
 
-  const createPoll = () => Alert.alert('Form submitted');
+  const createPoll = () => Alert.alert("Form submitted");
 
   // (i)
   // - onChangeText handler provides the input value by default
@@ -37,21 +46,29 @@ export default function Create() {
 
   return (
     <>
-      <Stack.Screen options={{
-        title: 'Create poll',
-        headerStyle: {
-          backgroundColor: 'thistle',
-        }
-      }} />
-      <ScrollView style={{
-        backgroundColor: 'thistle',
-      }}
+      <Stack.Screen
+        options={{
+          title: "Create poll",
+          headerStyle: {
+            backgroundColor: "thistle",
+          },
+        }}
+      />
+      <ScrollView
+        style={{
+          backgroundColor: "thistle",
+        }}
         contentContainerStyle={gs.container}
       >
         <View style={{ gap: 10 }}>
           <View>
             <Text style={s.label}>Title</Text>
-            <TextInput style={s.input} value={question} onChangeText={setQuestion} placeholder="Type your question here"></TextInput>
+            <TextInput
+              style={s.input}
+              value={question}
+              onChangeText={setQuestion}
+              placeholder="Type your question here"
+            ></TextInput>
           </View>
           <View>
             <Text style={s.label}>Options</Text>
@@ -66,7 +83,10 @@ export default function Create() {
                   placeholder={`Option ${index + 1}`}
                   placeholderTextColor="#888"
                 />
-                <Pressable style={s.removeBtnBox} onPress={() => removeOption(index)}>
+                <Pressable
+                  style={s.removeBtnBox}
+                  onPress={() => removeOption(index)}
+                >
                   <Text style={s.removeBtnTxt}>&ndash;</Text>
                 </Pressable>
               </View>
@@ -74,7 +94,7 @@ export default function Create() {
           </View>
           <View>
             <Button
-              onPress={() => setOptions([...options, ''])}
+              onPress={() => setOptions([...options, ""])}
               title="Add option"
               accessibilityLabel="Add next option"
             />
@@ -87,29 +107,29 @@ export default function Create() {
         </View>
       </ScrollView>
     </>
-  )
+  );
 }
 
 const s = StyleSheet.create({
   optionContainer: {
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   label: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
   },
   input: {
     padding: 10,
-    ...createBorder(1, 'mediumpurple'),
+    ...createBorder(1, "mediumpurple"),
     borderRadius: 5,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     marginBottom: 10,
     fontSize: 20,
   },
   removeBtnBox: {
-    position: 'absolute',
+    position: "absolute",
     right: 10,
-    backgroundColor: 'red',
+    backgroundColor: "red",
     width: 28,
     height: 28,
     borderRadius: 14,
@@ -118,14 +138,14 @@ const s = StyleSheet.create({
     transform: [{ translateY: -5 }],
   },
   removeBtnTxt: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 18,
     // backgroundColor: 'lime',
     width: 28,
     height: 28,
     lineHeight: 28,
-    textAlign: 'center',
+    textAlign: "center",
     transform: [{ translateY: -1 }],
-  }
+  },
 });

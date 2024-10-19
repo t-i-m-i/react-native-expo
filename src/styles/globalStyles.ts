@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
-import { createBorder } from './borderUtils';
+import { createBorder } from "./borderUtils";
 
 const globalStyles = StyleSheet.create({
   listItem: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 10,
     borderRadius: 5,
-    ...createBorder(1, 'tomato'),
+    ...createBorder(1, "tomato"),
   },
   container: {
     padding: 10,
@@ -14,13 +14,13 @@ const globalStyles = StyleSheet.create({
     // backgroundColor: 'lime',
   },
   item: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 10,
     borderRadius: 5,
   },
   title: {
-    fontWeight: 'bold',
-  }
+    fontWeight: "bold",
+  },
 });
 
 export default globalStyles;
