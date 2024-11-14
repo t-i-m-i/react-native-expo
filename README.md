@@ -14,6 +14,9 @@ npm install
 npx expo start
 ```
 
+## References
+- https://egghead.io/courses/build-and-deploy-react-native-apps-with-expo-eas-85ab521e
+
 ## Dev log
 
 ### 1. Install app from the ground up

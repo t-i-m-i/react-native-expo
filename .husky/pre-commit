@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# npm test
+
+
+# `--verbose`` flag show warnings. i.e. same output as `npx eslint src`
+# without flag it doesn't show this warnings npx eslint src does
+
+npx lint-staged --verbose

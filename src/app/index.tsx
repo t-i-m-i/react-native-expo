@@ -36,6 +36,8 @@ export default function Index() {
   // see: https://share.merce.com/files/c3fee586-bcd3-40ad-8fb4-d720b75c995e.png
   // debugger
 
+  // test comment to trigger commit
+
   useEffect(() => {
     const fetchPolls = async () => {
       let { data, error } = await pollsQuery;
