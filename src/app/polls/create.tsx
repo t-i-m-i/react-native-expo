@@ -9,16 +9,22 @@ import {
   Alert,
   Pressable,
 } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import gs from "styles/globalStyles";
 import { createBorder } from "styles/borderUtils";
+
+// import { supabase } from "@/lib/supabase";
+// import { Session } from "@supabase/supabase-js";
+// import LoginScreen from "../(auth)/login";
 
 export default function Create() {
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState(["111", "222"]);
 
-  const createPoll = () => Alert.alert("Form submitted");
+  const createPoll = () => {
+    Alert.alert("Form submitted");
+  };
 
   // (i)
   // - onChangeText handler provides the input value by default
@@ -43,6 +49,20 @@ export default function Create() {
     updated.splice(index, 1);
     setOptions(updated);
   };
+
+  // supabase auth --->
+  // const [session, setSession] = useState<Session | null>(null)
+  // <--- supabase auth
+
+  // useEffect(() => {
+  //   supabase.auth.getSession().then(({ data: { session } }) => {
+  //     setSession(session)
+  //   })
+
+  //   supabase.auth.onAuthStateChange((_event, session) => {
+  //     setSession(session)
+  //   })
+  // }, []);
 
   return (
     <>

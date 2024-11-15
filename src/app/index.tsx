@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { supabase } from "../lib/supabase";
-import { QueryData } from "@supabase/supabase-js";
+import { QueryData, Session } from "@supabase/supabase-js";
 import { Tables } from "../types/database.types";
 
 // +++ when selecting selected columns:
@@ -62,7 +62,7 @@ export default function Index() {
           },
           headerLeft: () => (
             <Link
-              href={"/login"}
+              href={"/profile"}
               style={{
                 color: "#007AFF",
                 fontSize: 16,

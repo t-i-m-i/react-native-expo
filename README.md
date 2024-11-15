@@ -51,8 +51,8 @@ Added to project:
 
 - dotenv devDep,
 - PROJECT_REF .env variable
-- generate-supabase-types.js script for @npx supabase gen types@,
-- package.json script @generate-supabase-types@
+- generate-supabase-types.js script for `npx supabase gen types`,
+- package.json script `generate-supabase-types`
 
 ### 5. Import components and styles using absolute references
 
