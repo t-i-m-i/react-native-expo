@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Redirect, Stack } from "expo-router";
 import {
   View,
   Text,
@@ -9,18 +9,20 @@ import {
   Alert,
   Pressable,
 } from "react-native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import gs from "styles/globalStyles";
 import { createBorder } from "styles/borderUtils";
-
-// import { supabase } from "@/lib/supabase";
-// import { Session } from "@supabase/supabase-js";
-// import LoginScreen from "../(auth)/login";
+import { useAuth } from "@/providers/AuthProvider";
 
 export default function Create() {
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState(["111", "222"]);
+
+  const { session } = useAuth();
+  if (!session) {
+    return <Redirect href="/login" />
+  }
 
   const createPoll = () => {
     Alert.alert("Form submitted");
@@ -49,20 +51,6 @@ export default function Create() {
     updated.splice(index, 1);
     setOptions(updated);
   };
-
-  // supabase auth --->
-  // const [session, setSession] = useState<Session | null>(null)
-  // <--- supabase auth
-
-  // useEffect(() => {
-  //   supabase.auth.getSession().then(({ data: { session } }) => {
-  //     setSession(session)
-  //   })
-
-  //   supabase.auth.onAuthStateChange((_event, session) => {
-  //     setSession(session)
-  //   })
-  // }, []);
 
   return (
     <>
