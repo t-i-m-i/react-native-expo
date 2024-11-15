@@ -7,4 +7,7 @@
 # `--verbose`` flag show warnings. i.e. same output as `npx eslint src`
 # without flag it doesn't show this warnings npx eslint src does
 
+# to see the current path to node: `which node`
+export PATH="/Users/timi/.nvm/versions/node/v20.17.0/bin/node:$PATH"
+
 npx lint-staged --verbose
